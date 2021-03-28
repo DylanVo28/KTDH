@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Kỹ thuật đồ họa</title>
+</head>
+<body>
+    <div class="wrap-canvas">
+
+        <canvas id="canvas" style="width:1285px;height:605px;"></canvas>
+    </div>
+    <script>
+        var canvas = document.getElementById("canvas")
+var ctx = canvas.getContext("2d")
+var drawPixel = (x, y) => {
+    ctx.fillRect(x, y, 1, 1);
+};
+    </script>
+    <script>
+        var canvas = document.getElementById("canvas")
+        var ctx = canvas.getContext("2d")
+        let w = ctx.canvas.width
+        let h = ctx.canvas.height
+        for (let x=0;x<=w;x+=5) {
+            ctx.moveTo(x, 0);
+            ctx.lineTo(x, h);
+            ctx.stroke();
+        }
+        for (let y=0;y<=h;y+=5) {
+            ctx.beginPath();
+            ctx.beginPath();
+            ctx.moveTo(0, y);
+            ctx.lineTo(w, y);
+            ctx.stroke();
+        }
+        canvas.onmousedown =  function (e) {
+            console.log(e.clientX-canvas.getBoundingClientRect().left)
+            console.log(e.clientY-canvas.getBoundingClientRect().top)
+        }
+    </script>
+</body>
+</html>
