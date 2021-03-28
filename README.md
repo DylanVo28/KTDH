@@ -30,4 +30,8 @@ Quy trình:
 
 Nên code trên nhánh của mình để ko xảy ra lỗi, code xong commit lại trên nhánh của mình,
 
-sau đó checkout qua nhánh master(thường là nhánh main), pull code mới về từ nhánh master, sau đó push (lưu ý khi push code thì kiểm tra xem nó có bị conflict các file ko)
+sau đó checkout qua nhánh master(thường là nhánh main), 
+
+git merge Branch-Dinh,
+
+pull code mới về từ nhánh master, sau đó push (lưu ý khi push code thì kiểm tra xem nó có bị conflict các file ko)
