@@ -14,7 +14,7 @@
 <!-- test -->
 <!-- test nhanh -->
 <!-- test nhanh Dinh -->
-        <canvas id="canvas" style="width:1285px;height:605px;"></canvas>
+        <canvas id="canvas"></canvas>
     </div>
     <script>
         var canvas = document.getElementById("canvas")
@@ -27,9 +27,11 @@ var drawPixel = (x, y) => {
         var canvas = document.getElementById("canvas")
         var ctx = canvas.getContext("2d")
         ctx.fillStyle = "red"
-        ctx.fillRect(100,100,5,5)
-        let w = ctx.canvas.width
-        let h = ctx.canvas.height
+        console.log(canvas)
+        let w = 1280
+        let h = 600
+        ctx.canvas.width = w
+        ctx.canvas.height = h
         for (let x=0;x<=w;x+=5) {
             ctx.moveTo(x, 0);
             ctx.lineTo(x, h);
@@ -46,6 +48,7 @@ var drawPixel = (x, y) => {
             console.log(e.clientY-canvas.getBoundingClientRect().top)
             posX = e.clientX-canvas.getBoundingClientRect().left
             posY = e.clientY-canvas.getBoundingClientRect().top
+            ctx.fillStyle = "red";
             ctx.fillRect(posX, posY,5,5)
         }
     </script>
