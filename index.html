@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,56 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Kỹ thuật đồ họa</title>
+<script type="module" defer src="myJS.js"></script>
+    
+    
 </head>
 <body>
     <div class="wrap-canvas">
-<!-- dasdadasvhjhhjh -->
-<!-- test tiep -->
-<!-- test -->
-<!-- test nhanh -->
-<!-- test nhanh Dinh -->
-        <canvas id="canvas" style="width:1285px;height:605px;"></canvas>
+        <canvas id="canvas"></canvas>
     </div>
-    <script>
-        var canvas = document.getElementById("canvas")
-var ctx = canvas.getContext("2d")
-var drawPixel = (x, y) => {
-    ctx.fillRect(x, y, 1, 1);
-};
-
-
-    </script>
-    <script>
-        var canvas = document.getElementById("canvas")
-        var ctx = canvas.getContext("2d")
-        ctx.fillStyle = "red"
-        ctx.fillRect(0,0,5,5)
-        ctx.fillRect(100,100,5,5)
-
-        let w = ctx.canvas.width
-        let h = ctx.canvas.height
-        for (let x=0;x<=w;x+=5) {
-            ctx.moveTo(x, 0);
-            ctx.lineTo(x, h);
-            ctx.stroke();
-        }
-        for (let y=0;y<=h;y+=5) {
-            ctx.beginPath();
-            ctx.moveTo(0, y);
-            ctx.lineTo(w, y);
-            ctx.stroke();
-        }
-        canvas.onmousedown =  function (e) {
-            console.log(canvas.getBoundingClientRect().left)
-            console.log(canvas.getBoundingClientRect().right)
-            const posX = Number((e.clientX-canvas.getBoundingClientRect().left)*
-            (canvas.width /canvas.getBoundingClientRect().width))
-            const posY = Number((e.clientY-canvas.getBoundingClientRect().top)*
-            canvas.height /canvas.getBoundingClientRect().height)
-            console.log(posX)
-            ctx.fillStyle = "red"
-            ctx.fillRect(posX, posY,5,5)
-        }
-    </script>
 </body>
+
 </html>
