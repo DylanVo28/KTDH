@@ -25,6 +25,8 @@ var drawPixel = (x, y) => {
     <script>
         var canvas = document.getElementById("canvas")
         var ctx = canvas.getContext("2d")
+        ctx.fillStyle = "red"
+        ctx.fillRect(100,100,5,5)
         let w = ctx.canvas.width
         let h = ctx.canvas.height
         for (let x=0;x<=w;x+=5) {
@@ -34,7 +36,6 @@ var drawPixel = (x, y) => {
         }
         for (let y=0;y<=h;y+=5) {
             ctx.beginPath();
-            ctx.beginPath();
             ctx.moveTo(0, y);
             ctx.lineTo(w, y);
             ctx.stroke();
@@ -42,6 +43,9 @@ var drawPixel = (x, y) => {
         canvas.onmousedown =  function (e) {
             console.log(e.clientX-canvas.getBoundingClientRect().left)
             console.log(e.clientY-canvas.getBoundingClientRect().top)
+            posX = e.clientX-canvas.getBoundingClientRect().left
+            posY = e.clientY-canvas.getBoundingClientRect().top
+            ctx.fillRect(posX, posY,5,5)
         }
     </script>
 </body>
