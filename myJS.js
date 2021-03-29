@@ -5,6 +5,7 @@ import {getPosX,getPosY,drawPixel} from "./CaculateHandle.js"
     let h = 600
     ctx.canvas.width = w
     ctx.canvas.height = h
+    //Vẽ lưới pixel
     for (let x=0;x<=w;x+=5) {
         ctx.moveTo(x, 0);
         ctx.lineTo(x, h);
@@ -16,6 +17,16 @@ import {getPosX,getPosY,drawPixel} from "./CaculateHandle.js"
         ctx.lineTo(w, y);
         ctx.stroke();
     }
+    //Vẽ thêm trục Ox Oy
+    ctx.beginPath();
+    ctx.strokeStyle = "blue"
+    ctx.moveTo(640, 0);
+    ctx.lineTo(640, h);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(0, 300);
+    ctx.lineTo(w, 300);
+    ctx.stroke();
     canvas.onmousedown =  function (e) {
         const posX = getPosX(e);
         const posY = getPosY(e)
