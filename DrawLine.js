@@ -46,7 +46,7 @@ function drawLine(x1, y1, x2, y2){ //viet bang thuat toan Bresenham
                 y += y_unit;
             }
             x += x_unit;
-            drawPixel(x, y);
+            drawPixel(x, y); //ve
         }
     }
 }
