@@ -1,6 +1,6 @@
 import {getPosX,getPosY,drawPixel} from "./CaculateHandle.js"
 import {initCoordinate} from './Init.js'
-import (drawLine) from './DrawLine.js'
+import drawLine from './DrawLine.js'
 var canvas = document.getElementById("canvas")
 var ctx = canvas.getContext("2d")
 var pointPrev={
@@ -38,10 +38,4 @@ canvas.onmousedown =  function (e) {
     }
     ctx.lineWidth = 5;
     ctx.stroke();
-
-   
 }
-
-
-
-

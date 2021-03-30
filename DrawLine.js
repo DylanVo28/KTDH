@@ -1,4 +1,4 @@
-import { drawPixel } from "./CaculateHandle";
+import { drawPixel } from "./CaculateHandle.js";
 
 function drawLine(x1, y1, x2, y2)
 {
@@ -48,3 +48,5 @@ function drawLine(x1, y1, x2, y2)
         }    
     }
 }
+
+export default drawLine;
