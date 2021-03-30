@@ -1,39 +1,50 @@
 import { drawPixel } from "./CaculateHandle";
 
-const drawLine(xa,ya,xb,yb)=(e) => {
-    var dx=Math.abs(xa-xb);
-    var dy=Math.abs(ya-yb);
-    var p=2*dy-dx;
-    var twody=2*dy;
-    var twodydx=2*(dy-dx);
-    var x,y,xend;
-
-    if(xa>xb)
-    {
-        x=xb;
-        y=yb;
-        xend=xa;
+function drawLine(x1, y1, x2, y2)
+{
+    var dx = x2 - x1; var sx = 1;
+    var dy = y2 - y1; var sy = 1;
+    
+    if (dx < 0)    {
+        sx = -1;
+        dx = -dx;
     }
-    else
-    {
-        x=xa;
-        y=yb;
-        xend=xb;
+    if (dy < 0)    {
+        sy = -1;
+        dy = -dy;
     }
-    drawPixel(x,y);
-    while(x<xend)
+    
+    dx = dx << 1;
+    dy = dy << 1;
+    this.drawPixel(x1, y1);
+    if (dy < dx)
+    {    
+        var fraction = dy - (dx>>1);
+        while (x1 != x2)
+        {
+            if (fraction >= 0)
+            {
+                y1 += sy;
+                fraction -= dx;
+            }
+            fraction += dy;
+            x1 += sx;
+            drawPixel(x1, y1);
+        }
+    } 
+    else 
     {
-        x++;
-        if(p<0)
+        var fraction = dx - (dy>>1);        
+        while (y1 != y2)
         {
-            p+=twody;
-        }
-        else
-        {
-            y++;
-            p+=twodydx;
-        }
-        drawPixel(x,y);
+            if (fraction >= 0)
+            {
+                x1 += sx;
+                fraction -= dy;
+            }
+            fraction += dx;
+            y1 += sy;
+            drawPixel(x1, y1);
+        }    
     }
 }
-export {drawLine}
