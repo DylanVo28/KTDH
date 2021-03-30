@@ -1,6 +1,6 @@
 import { drawPixel } from "./CaculateHandle";
 
-function drawLine(xa,ya,xb,yb){
+const drawLine(xa,ya,xb,yb)=(e) => {
     var dx=Math.abs(xa-xb);
     var dy=Math.abs(ya-yb);
     var p=2*dy-dx;
