@@ -20,7 +20,6 @@ function drawLine(x1, y1, x2, y2){ //viet bang thuat toan Bresenham
     {
         while (y != y2+1)
         {
-            delay(10);
             y += y_unit;
             drawPixel(x, y);
         }
@@ -30,7 +29,6 @@ function drawLine(x1, y1, x2, y2){ //viet bang thuat toan Bresenham
     {
         while (x != x2+1)
         {
-            delay(10);
             x += x_unit;
             drawPixel(x, y);
         }
@@ -39,7 +37,6 @@ function drawLine(x1, y1, x2, y2){ //viet bang thuat toan Bresenham
     else{          
         drawPixel(x, y);
         while(x != x2){
-            delay(10);
             if (p<0) p += 2*Dy;
             else{
                 p += 2*(Dy-Dx);
