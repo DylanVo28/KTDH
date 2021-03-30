@@ -8,6 +8,7 @@ const getPosY=(e)=>{
     return e.clientY-canvas.getBoundingClientRect().top
 }
 const drawPixel = (x, y) => {
-    ctx.fillRect(x, y, 1, 1);
+    ctx.fillStyle="red"
+    ctx.fillRect(x, y, 2, 2);
 };
 export {getPosX,getPosY,drawPixel}
