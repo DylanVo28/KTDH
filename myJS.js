@@ -31,7 +31,6 @@ canvas.onmousedown =  function (e) {
     ctx.setLineDash([15, 5]);
     ctx.moveTo(pointPrev.x, pointPrev.y);
     ctx.lineTo(posX, posY);
-    drawLine(posX, posY, x, y);
 
     pointPrev={
         x:posX,
