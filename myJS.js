@@ -38,4 +38,6 @@ canvas.onmousedown =  function (e) {
    
 }
 
+drawLine();
+
 
