@@ -1,49 +1,60 @@
 import { drawPixel } from "./CaculateHandle.js"; //call function
 
 function drawLine(x1, y1, x2, y2){ //viet bang thuat toan Bresenham
-    var x, y, Dx, Dy, p;
+    var c2, c, Dx, Dy, x, y;
     Dx = Math.abs(x2 - x1);
     Dy = Math.abs(y2 - y1);
-    p = 2*Dy - Dx;
+    c = Dx - Dy;
+    c2 = 2*c;
     x = x1;
     y = y1;
- 
+     
     var x_unit = 1, y_unit = 1;
- 
-    //xét trường hợp để cho y_unit và x_unit để vẽ tăng lên hay giảm xuống
+     
     if (x2 - x1 < 0)
         x_unit = -x_unit;
     if (y2 - y1 < 0)
         y_unit = -y_unit;
  
-    if (x1 == x2)   // trường hợp vẽ đường thẳng đứng
+    drawPixel(x, y);
+     
+    if (x1 == x2)   // duong thang dung
     {
-        while (y != y2+1)
+        while (y != y2)
         {
+           
             y += y_unit;
             drawPixel(x, y);
         }
     }
- 
-    else if (y1 == y2)  // trường hợp vẽ đường ngang
+     
+    else if (y1 == y2)  // duong ngang
     {
-        while (x != x2+1)
+        while (x != x2)
         {
+            
             x += x_unit;
             drawPixel(x, y);
         }
     }
-            // trường hợp vẽ các đường xiên
-    else{          
-        drawPixel(x, y);
-        while(x != x2){
-            if (p<0) p += 2*Dy;
-            else{
-                p += 2*(Dy-Dx);
-                y += y_unit;
+     
+    else if (x1 != x2 && y1 != y2)  // duong xien
+    {
+        while(x != x2+1)
+        {
+           
+            c2 =2*c;
+            if (c2 > -Dy)    
+            {
+                c = c - Dy; 
+                x = x + x_unit;
             }
-            x += x_unit;
-            drawPixel(x, y); //ve
+            if (c2 < Dx) 
+            {
+                c = c + Dx; 
+                y = y + y_unit; 
+            }
+            drawPixel(x, y);
         }
     }
 }

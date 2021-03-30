@@ -41,4 +41,3 @@ canvas.onmousedown=function(e){
     }
     
 }
-
