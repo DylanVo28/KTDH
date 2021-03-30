@@ -36,3 +36,4 @@ const drawLine(xa,ya,xb,yb)=(e) => {
         drawPixel(x,y);
     }
 }
+export {drawLine}
