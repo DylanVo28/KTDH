@@ -1,10 +1,19 @@
 .wrap-canvas {
     position: relative;
+    height: 600px
 }
 
 #canvas {
     border: 2px solid red;
-    position: absolute;
-    top: auto;
-    left: auto;
+    margin-left: 100px;
+}
+
+.menu-fucitional {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn {
+    margin-left: 10px;
+    margin-right: 10px;
 }
