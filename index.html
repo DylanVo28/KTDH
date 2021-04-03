@@ -7,7 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Kỹ thuật đồ họa</title>
-<script type="module" defer src="myJS.js"></script>
+<script type="module" defer src="myJS.js">
+    
+</script>
+
 </head>
 <body>
     <div class="wrap-canvas">
@@ -16,9 +19,9 @@
     <div class="menu-fucitional">
         <div class="menu-2d">
             <h2 style="text-align:center;">Chức năng 2d</h2>
-            <button class="btn">Chọn điểm hiện tọa độ</button>
-            <button class="btn">Vẽ đường thẳng</button>
-            <button class="btn">Vẽ né đứt</button>
+            <button class="btn"  value="CLICK_ELEMENT">Chọn điểm hiện tọa độ</button>
+            <button class="btn"  value="DRAW_LINE" >Vẽ đường thẳng</button>
+            <button class="btn"  value="DRAW_DASH">Vẽ né đứt</button>
         </div>
         <div class="menu-3d">
             <h2 style="text-align:center;">Chức năng 3d</h2>
@@ -26,5 +29,11 @@
             <button class="btn">Vẽ hình lập phương</button>
         </div>
     </div>
+    <script type="text/javascript">
+        
+        function replyClick(){
+    console.log(event.srcElement.value)
+}
+    </script>
 </body>
 </html>
