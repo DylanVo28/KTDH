@@ -15,11 +15,26 @@ const drawPixel = (x, y) => {
 function  Round(x){
     if(x%5>=3)
     {
-        return x+5-x%5;
+        return x=x+5-x%5;
     }
     else{
-        return  x-x%5;
+        return  x=x-x%5;
     }
+ }
+
+ function RealX(x)
+ {
+     if (x>=640)
+     return x = -(128 - x/5)
+     else
+     return x =(x-640)/5
+ }
+ function RealY(y)
+ {
+     if (y>=300)
+     return y = -((y-300)/5)
+     else
+     return y = 60 - y/5
 
  }
-export {Round,getPosX,getPosY,drawPixel}
+export {Round,getPosX,getPosY,drawPixel,RealX,RealY}
