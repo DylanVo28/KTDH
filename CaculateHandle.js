@@ -8,7 +8,18 @@ const getPosY=(e)=>{
     return e.clientY-canvas.getBoundingClientRect().top
 }
 const drawPixel = (x, y) => {
+   
     ctx.fillStyle="red"
-    ctx.fillRect(x, y, 2, 2);
+    ctx.fillRect(x, y, 1, 1);
 };
-export {getPosX,getPosY,drawPixel}
+function  Round(x){
+    if(x%5>0)
+    {
+        return x-x%5+5;
+    }
+    else{
+        return  x-x%5;
+    }
+
+ }
+export {Round,getPosX,getPosY,drawPixel}

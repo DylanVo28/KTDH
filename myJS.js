@@ -1,6 +1,9 @@
 import {getPosX,getPosY,drawPixel} from "./CaculateHandle.js"
 import {initCoordinate} from './Init.js'
 import drawLine from './DrawLine.js'
+import DrawDashWithDot from './DrawDashWithDot.js'
+import DrawDash from "./DrawDash.js"
+
 var canvas = document.getElementById("canvas")
 var ctx = canvas.getContext("2d")
 let w = 1280
@@ -36,7 +39,7 @@ canvas.onmousedown=function(e){
             y:posY
         }
         console.log(pointPrev.x+" "+pointPrev.y+" "+point.x+" "+point.y)
-        drawLine(pointPrev.x,pointPrev.y,point.x,point.y)
+        DrawDashWithDot(pointPrev.x,pointPrev.y,point.x,point.y)
         pointPrev=point
     }
     
