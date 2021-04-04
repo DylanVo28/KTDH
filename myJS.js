@@ -23,7 +23,7 @@ function optionSelect(action){
                     const posX = Round(getPosX(e));
                     const posY = Round(getPosY(e));
                     ctx.fillStyle = "red";
-                    ctx.fillRect(posX, posY,5,5)
+                    ctx.fillRect(posX-2, posY-2,5,5)
                     console.log(posX,posY)
                     console.log("Tọa độ điểm : (" + RealX(posX) + "," + RealY(posY) + ")")
                 }
