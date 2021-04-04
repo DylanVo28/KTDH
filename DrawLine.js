@@ -40,22 +40,45 @@ function drawLine(x1, y1, x2, y2){ //viet bang thuat toan Bresenham
      
     else if (x1 != x2 && y1 != y2)  // duong xien
     {
-        while(x != x2+1)
+        if(x2>=x1)
         {
-           
-            c2 =2*c;
-            if (c2 > -Dy)    
+            while(!(x == x2+5|| y==y2+1))
             {
-                c = c - Dy; 
-                x = x + x_unit;
+            
+                c2 =2*c;
+                if (c2 > -Dy)    
+                {
+                    c = c - Dy; 
+                    x = x + x_unit;
+                }
+                if (c2 < Dx) 
+                {
+                    c = c + Dx; 
+                    y = y + y_unit; 
+                }
+                drawPixel(x, y);
             }
-            if (c2 < Dx) 
-            {
-                c = c + Dx; 
-                y = y + y_unit; 
-            }
-            drawPixel(x, y);
         }
+        if(x2<x1)
+        {
+            while(!(x == x2-5 || y==y2+1))
+            {
+            
+                c2 =2*c;
+                if (c2 > -Dy)    
+                {
+                    c = c - Dy; 
+                    x = x + x_unit;
+                }
+                if (c2 < Dx) 
+                {
+                    c = c + Dx; 
+                    y = y + y_unit; 
+                }
+                drawPixel(x, y);
+            }
+        }
+      
     }
 }
 

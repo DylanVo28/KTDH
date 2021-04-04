@@ -1,4 +1,4 @@
-import {getPosX,getPosY,drawPixel} from "./CaculateHandle.js"
+import {getPosX,getPosY,drawPixel,Round,RealX,RealY} from "./CaculateHandle.js"
 import {initCoordinate} from './Init.js'
 import drawLine from './DrawLine.js'
 import DrawDashWithDot from './DrawDashWithDot.js'
