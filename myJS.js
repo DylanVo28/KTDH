@@ -1,4 +1,4 @@
-import {getPosX,getPosY,drawPixel} from "./CaculateHandle.js"
+import {getPosX,getPosY,drawPixel,Round,RealX,RealY} from "./CaculateHandle.js"
 import {initCoordinate} from './Init.js'
 import drawLine from './DrawLine.js'
 import DrawDashWithDot from './DrawDashWithDot.js'
@@ -20,10 +20,12 @@ function optionSelect(action){
     switch(action){
             case 'CLICK_ELEMENT':
                 canvas.onmousedown =  function (e) {
-                    const posX = getPosX(e);
-                    const posY = getPosY(e)
+                    const posX = Round(getPosX(e));
+                    const posY = Round(getPosY(e));
                     ctx.fillStyle = "red";
-                    ctx.fillRect(posX, posY,5,5)
+                    ctx.fillRect(posX-2, posY-2,5,5)
+                    console.log(posX,posY)
+                    console.log("Tọa độ điểm : (" + RealX(posX) + "," + RealY(posY) + ")")
                 }
                 break;
             case 'DRAW_LINE':
@@ -33,8 +35,8 @@ function optionSelect(action){
                     y:0
                 }
                 canvas.onmousedown=function(e){
-                    const posX=getPosX(e)
-                    const posY=getPosY(e)
+                    const posX=Round(getPosX(e))
+                    const posY=Round(getPosY(e))
                     ctx.fillStyle = "red";
                     ctx.fillRect(posX, posY,6,6)
                     if(!checkClickFirst){
@@ -50,6 +52,7 @@ function optionSelect(action){
                             x:posX,
                             y:posY
                         }
+                        console.log(pointPrev.x,pointPrev.y,point.x,point.y)
                         drawLine(pointPrev.x,pointPrev.y,point.x,point.y)
                         pointPrev=point
                     }
