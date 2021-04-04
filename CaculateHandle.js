@@ -13,9 +13,9 @@ const drawPixel = (x, y) => {
     ctx.fillRect(x, y, 1, 1);
 };
 function  Round(x){
-    if(x%5>0)
+    if(x%5>=3)
     {
-        return x-x%5+5;
+        return x+5-x%5;
     }
     else{
         return  x-x%5;
