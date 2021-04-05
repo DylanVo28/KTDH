@@ -15,14 +15,36 @@ for (var i=0; i < buttons.length; i++) {
         optionSelect(event.srcElement.value)
     }
 };
+function getRandomString(length) {
+    var randomChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    var result = '';
+    for ( var i = 0; i < length; i++ ) {
+        result += randomChars.charAt(Math.floor(Math.random() * randomChars.length));
+    }
+    return result;
+}
+function createElement(posX,posY,e){
+    var node = document.createElement("span");
+    var textNode=document.createTextNode(getRandomString(1)+"("+parseInt(RealX(posX))+','+parseInt(RealY(posY))+')')
+    var randomColor = Math.floor(Math.random()*16777215).toString(16);
+    node.appendChild(textNode);
+    node.style.top=e.clientY+"px"
+    node.style.left=e.clientX+"px"
+    node.style.color="#"+randomColor;
+    document.getElementById("wrap").appendChild(node);
+}
 function optionSelect(action){
     switch(action){
         case 'CLICK_ELEMENT':
             canvas.onmousedown =  function (e) {
+                console.log(e.clientX+" "+e.clientY)
+                
                 const posX = getPosX(e);
                 const posY = getPosY(e)
+              
                 ctx.fillStyle = "red";
                 ctx.fillRect(posX, posY,5,5)
+                createElement(posX,posY,e)
             }
             break;
         case 'DRAW_LINE':
@@ -52,6 +74,7 @@ function optionSelect(action){
                     drawLine(pointPrev.x,pointPrev.y,point.x,point.y)
                     pointPrev=point
                 }
+                createElement(posX,posY,e)
                 
             }
             break;
@@ -64,7 +87,6 @@ function optionSelect(action){
             canvas.onmousedown=function(e){
                 const posX=getPosX(e)
                 const posY=getPosY(e)
-                console.log(posX, posY)
                 ctx.fillStyle = "red";
                 ctx.fillRect(posX, posY,6,6)
                 if(!checkClickFirst){
@@ -82,6 +104,8 @@ function optionSelect(action){
                     DrawDash(pointPrev.x,pointPrev.y,point.x,point.y)
                     pointPrev=point
                 }
+                createElement(posX,posY,e)
+
             }
             break;
         default :
