@@ -3,6 +3,7 @@ import {initCoordinate} from './Init.js'
 import drawLine from './DrawLine.js'
 import DrawDashWithDot from './DrawDashWithDot.js'
 import DrawDash from "./DrawDash.js"
+import drawREC from "./DrawREC.js"
 
 var canvas = document.getElementById("canvas")
 var ctx = canvas.getContext("2d")
@@ -108,6 +109,36 @@ function optionSelect(action){
 
             }
             break;
+        case 'DRAW_REC':
+                var checkClickFirst=false;
+                var pointPrev={
+                    x:0,
+                    y:0
+                }
+                canvas.onmousedown=function(e){
+                    const posX=Round(getPosX(e))
+                    const posY=Round(getPosY(e))
+                    ctx.fillStyle = "red";
+                    ctx.fillRect(posX, posY,5,5)
+                    if(!checkClickFirst){
+                        pointPrev={
+                            x:posX,
+                            y:posY
+                        }
+                    checkClickFirst=true;
+                    }
+                    else{
+                        
+                        const point={
+                            x:posX,
+                            y:posY
+                        }
+                        console.log(pointPrev.x,pointPrev.y,point.x,point.y)
+                        drawREC(pointPrev.x,pointPrev.y,point.x,point.y)
+                        pointPrev=point
+                    }
+                }
+                break;
         default :
             alert("Vui lòng chọn tính năng")      
         }
