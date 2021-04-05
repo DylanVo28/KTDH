@@ -1,4 +1,4 @@
-import {getPosX,getPosY,drawPixel} from "./CaculateHandle.js"
+import {Round,getPosX,getPosY,drawPixel} from "./CaculateHandle.js"
 import {initCoordinate} from './Init.js'
 import drawLine from './DrawLine.js'
 import DrawDashWithDot from './DrawDashWithDot.js'
@@ -33,10 +33,10 @@ function optionSelect(action){
                     y:0
                 }
                 canvas.onmousedown=function(e){
-                    const posX=getPosX(e)
-                    const posY=getPosY(e)
+                    const posX=Round(getPosX(e))-3
+                    const posY=Round(getPosY(e))-3
                     ctx.fillStyle = "red";
-                    ctx.fillRect(posX, posY,6,6)
+                    ctx.fillRect(posX, posY,6,6 )
                     if(!checkClickFirst){
                         pointPrev={
                             x:posX,
