@@ -29,16 +29,16 @@ function drawREC(x1, y1, x2, y2){ //viet bang thuat toan Bresenham
         drawPixel(x, y);
         drawPixel(x2,yy)
     }
-    ctx.fillStyle = "red";
-    ctx.fillRect(x1, y2,5,5)
+    // ctx.fillStyle = "red";
+    // ctx.fillRect(x1-3, y2,6,6)
     while(x!=x2){ //vẽ đường ngang
         x += x_unit;
         xx -= x_unit;
         drawPixel(x,y1);
         drawPixel(xx,y2)
     }
-    ctx.fillStyle = "red";
-    ctx.fillRect(x2, y1,5,5)
+    // ctx.fillStyle = "red";
+    // ctx.fillRect(x2, y1-3,6,6)
     var grd = ctx.createRadialGradient(75, 50, 5, 90, 60, 100);
     //grd.addColorStop(0, "red");
     grd.addColorStop(1, "blue");
@@ -53,7 +53,7 @@ function drawREC(x1, y1, x2, y2){ //viet bang thuat toan Bresenham
         if(y1>y2) y=y2;
         else y=y1;
     }
-    ctx.fillRect( x+1,y+1, Math.abs(x1-x2), Math.abs(y1-y2) );  
+    //ctx.fillRect( x+1,y+1, Math.abs(x1-x2), Math.abs(y1-y2) );  
 }
 
 export default drawREC; //for other using

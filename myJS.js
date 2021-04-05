@@ -119,7 +119,7 @@ function optionSelect(action){
                     const posX=Round(getPosX(e))
                     const posY=Round(getPosY(e))
                     ctx.fillStyle = "red";
-                    ctx.fillRect(posX, posY,5,5)
+                    ctx.fillRect(posX, posY,2,2)
                     if(!checkClickFirst){
                         pointPrev={
                             x:posX,
@@ -136,6 +136,7 @@ function optionSelect(action){
                         console.log(pointPrev.x,pointPrev.y,point.x,point.y)
                         drawREC(pointPrev.x,pointPrev.y,point.x,point.y)
                         pointPrev=point
+                        checkClickFirst=false;
                     }
                 }
                 break;
