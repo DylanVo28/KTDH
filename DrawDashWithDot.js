@@ -1,15 +1,22 @@
 
 
-import { drawPixel } from "./CaculateHandle.js"; //call function
+import { Round,drawPixel } from "./CaculateHandle.js"; //call function
 function DashWithDot(length,x,y)
 {
-    if((length%13 <=6 && length%13 > 1  ) || length%13==11)
+    
+    if((length%23 <=15 && length%23 > 2 ) || length%23==18)
     {
+        
+        x=Round(x);
+        
+        y=Round(y);
+        console.log(x);
         drawPixel(x,y);
     }
     
- return length+=1;
+ return length+=1;          
 }
+
 function DrawDashWithDot(x1, y1, x2, y2){ //viet bang thuat toan Bresenham
     var c2, c, Dx, Dy, x, y;
     Dx = Math.abs(x2 - x1);
