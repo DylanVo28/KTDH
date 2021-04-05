@@ -4,7 +4,7 @@ import { Round,drawPixel } from "./CaculateHandle.js"; //call function
 function DashWithDot(length,x,y)
 {
     
-    if((length%100 <=80 && length%100 > 10  ) || length%100==95)
+    if((length%23 <=15 && length%23 > 2 ) || length%23==18)
     {
         
         x=Round(x);
