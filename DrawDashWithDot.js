@@ -14,7 +14,7 @@ function DashWithDot(length,x,y)
         drawPixel(x,y);
     }
     
- return length+=1;
+ return length+=1;          
 }
 
 function DrawDashWithDot(x1, y1, x2, y2){ //viet bang thuat toan Bresenham

@@ -1,20 +1,23 @@
+import {drawPixel} from './CaculateHandle.js'
 var canvas = document.getElementById("canvas")
 var ctx = canvas.getContext("2d")
 const initCoordinate=(width,height)=>{
     ctx.canvas.width = width
     ctx.canvas.height = height
-    // vẽ lưới pixel
-    for (let x=0;x<=width;x+=5) {
-        ctx.moveTo(x, 0);
-        ctx.lineTo(x, height);
-        ctx.stroke();
-    }
-    for (let y=0;y<=height;y+=5) {
-        ctx.beginPath();
-        ctx.moveTo(0, y);
-        ctx.lineTo(width, y);
-        ctx.stroke();
-    }
+    // // vẽ lưới pixel
+    // for (let x=0;x<=width;x+=5) {
+    //     ctx.moveTo(x, 0);
+    //     ctx.lineTo(x, height);
+    //     ctx.stroke();
+    //     ctx.fillRect(x, y, 2, 2);
+    // }
+    // for (let y=0;y<=height;y+=5) {
+    //     ctx.beginPath();
+    //     ctx.moveTo(0, y);
+    //     ctx.lineTo(width, y);
+    //     ctx.stroke();
+    //     ctx.fillRect(x, y, 2, 2);
+    // }
     // Vẽ trục Ox Oy
     ctx.beginPath();
     ctx.strokeStyle = "blue"
@@ -25,6 +28,14 @@ const initCoordinate=(width,height)=>{
     ctx.moveTo(0, height/2);
     ctx.lineTo(width, height/2);
     ctx.stroke();
+    ctx.fillStyle="red"
+
+    for(var x=0;x<=width;x+=10){
+    ctx.fillRect(x, height/2-4, 1, 8);
+    }
+    for(var y=0;y<=height;y+=10){
+        ctx.fillRect(width/2-4, y, 8, 1);
+        }
 }
 export {initCoordinate}
     

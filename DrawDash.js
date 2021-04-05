@@ -1,12 +1,9 @@
 import { drawPixel, Round } from "./CaculateHandle.js"; //call function
 function Dash(length,x,y)
 {
-    if(length%50 <= 40)
+    if(length%15 <= 10)
     {
-        x=Round(x);
-        console.log(x);
-        y=Round(y);
-        console.log(x);
+       
 
         drawPixel(x,y);
     }
