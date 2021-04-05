@@ -15,7 +15,6 @@ for (var i=0; i < buttons.length; i++) {
         optionSelect(event.srcElement.value)
     }
 };
-
 function optionSelect(action){
     switch(action){
         case 'CLICK_ELEMENT':
@@ -54,6 +53,35 @@ function optionSelect(action){
                     pointPrev=point
                 }
                 
+            }
+            break;
+        case 'DRAW_DASH':
+            var checkClickFirst=false;
+            var pointPrev={
+                x:0,
+                y:0
+            }
+            canvas.onmousedown=function(e){
+                const posX=getPosX(e)
+                const posY=getPosY(e)
+                console.log(posX, posY)
+                ctx.fillStyle = "red";
+                ctx.fillRect(posX, posY,6,6)
+                if(!checkClickFirst){
+                    pointPrev={
+                        x:posX,
+                        y:posY
+                    }
+                checkClickFirst=true;
+                }
+                else{
+                    const point={
+                        x:posX,
+                        y:posY
+                    }
+                    DrawDash(pointPrev.x,pointPrev.y,point.x,point.y)
+                    pointPrev=point
+                }
             }
             break;
         default :

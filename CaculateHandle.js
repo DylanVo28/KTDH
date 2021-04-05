@@ -10,7 +10,7 @@ const getPosY=(e)=>{
 const drawPixel = (x, y) => {
    
     ctx.fillStyle="red"
-    ctx.fillRect(x, y, 1, 1);
+    ctx.fillRect(x, y, 2, 2);
 };
 function  Round(x){
     if(x%5>=3)
