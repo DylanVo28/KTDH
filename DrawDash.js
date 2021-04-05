@@ -1,15 +1,10 @@
 import { drawPixel, Round } from "./CaculateHandle.js"; //call function
 function Dash(length,x,y)
 {
-<<<<<<< HEAD
     if(length%15 <= 10)
     {
        
 
-=======
-    if(length%15 <=10 )
-    {
->>>>>>> ae6291e0b21a605975ff808152b98fd17d9983a5
         drawPixel(x,y);
     }
     
