@@ -1,11 +1,12 @@
 .wrap-canvas {
     position: relative;
-    height: 600px
+    height: 600px;
+    text-align: center;
 }
 
 #canvas {
     border: 2px solid red;
-    margin-left: 100px;
+    margin: auto;
 }
 
 .menu-fucitional {
@@ -16,4 +17,7 @@
 .btn {
     margin-left: 10px;
     margin-right: 10px;
+}
+.wrap-canvas span{
+    position: absolute;
 }
