@@ -141,7 +141,7 @@ function optionSelect(action){
                 }
                 break;
         default :
-            alert("Vui lòng chọn tính năng")      
+            alert("Chức năng chưa cập nhật")      
         }
         
 }
