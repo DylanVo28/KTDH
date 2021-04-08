@@ -1,33 +1,32 @@
 import { drawPixel, Round } from "./CaculateHandle.js"; //call function
 function Dash(length,x,y)
 {
-    if(length%15 <= 10)
+    if(length%50 <= 30)
     {
-       
-
-        drawPixel(x,y);
+        drawPixel(x-2,y-2);
     }
     
- return length+=1;
+ return length+=5;
 }
 function DrawDash(x1, y1, x2, y2){ //viet bang thuat toan Bresenham
-    var c2, c, Dx, Dy, x, y;
+    var c2, c, Dx, Dy, x, y,p,length;
     Dx = Math.abs(x2 - x1);
     Dy = Math.abs(y2 - y1);
     c = Dx - Dy;
     c2 = 2*c;
     x = x1;
+    p=2*Dy-Dx;
     y = y1;
-    length=0;
-
-    var x_unit = 1, y_unit = 1;
+    length = 0;
+     
+    var x_unit = 5, y_unit = 5;
      
     if (x2 - x1 < 0)
         x_unit = -x_unit;
     if (y2 - y1 < 0)
         y_unit = -y_unit;
  
-    length=Dash(length,x,y);
+  length=Dash(length,x-2, y-2);
      
     if (x1 == x2)   // duong thang dung
     {
@@ -35,7 +34,7 @@ function DrawDash(x1, y1, x2, y2){ //viet bang thuat toan Bresenham
         {
            
             y += y_unit;
-            length=Dash(length,x,y);
+          length=Dash(length,x-2, y-2);
         }
     }
      
@@ -45,30 +44,70 @@ function DrawDash(x1, y1, x2, y2){ //viet bang thuat toan Bresenham
         {
             
             x += x_unit;
-            length=Dash(length,x,y);
+          length=Dash(length,x-2, y-2);
         }
     }
      
     else if (x1 != x2 && y1 != y2)  // duong xien
     {
-        while(x != x2+1)
+        if((Math.abs(y2-y1))<=25)
         {
-           
-            c2 =2*c;
-            if (c2 > -Dy)    
+            while(x != x2){
+                if (p<0) p += 2*Dy;
+                else{
+                    p += 2*(Dy-Dx);
+                    y += y_unit;
+                }
+                x += x_unit;
+              length=Dash(length,x-2, y-2);
+            }  
+        }
+        else
+        {
+            if(x2>=x1)
             {
-                c = c - Dy; 
-                x = x + x_unit;
+                // var sign=5;
+                // (y2>y1)? sign=5:sign=-5;
+                while(!(x == x2+5|| y==y2))
+                {
+                
+                    c2 =2*c;
+                    if (c2 > -Dy)    
+                    {
+                        c = c - Dy; 
+                        x = x + x_unit;
+                    }
+                    if (c2 < Dx) 
+                    {
+                        c = c + Dx; 
+                        y = y + y_unit; 
+                    }
+                  length=Dash(length,x-2, y-2);
+                }
             }
-            if (c2 < Dx) 
+            if(x2<x1)
             {
-                c = c + Dx; 
-                y = y + y_unit; 
+                // var sign=5;
+                // (y2>y1)? sign=+5:sign=-5;
+                while(!(x == x2-5 || y==y2))
+                {
+                
+                    c2 =2*c;
+                    if (c2 > -Dy)    
+                    {
+                        c = c - Dy; 
+                        x = x + x_unit;
+                    }
+                    if (c2 < Dx) 
+                    {
+                        c = c + Dx; 
+                        y = y + y_unit; 
+                    }
+                  length=Dash(length,x-2, y-2);
+                }
             }
-            length=Dash(length,x,y);
         }
     }
 }
-
 export default DrawDash; //for other using
 

@@ -10,14 +10,14 @@ function drawLine(x1, y1, x2, y2){ //viet bang thuat toan Bresenham
     p=2*Dy-Dx;
     y = y1;
      
-    var x_unit = 1, y_unit = 1;
+    var x_unit = 5, y_unit = 5;
      
     if (x2 - x1 < 0)
         x_unit = -x_unit;
     if (y2 - y1 < 0)
         y_unit = -y_unit;
  
-    drawPixel(x, y);
+  drawPixel(x-2, y-2);
      
     if (x1 == x2)   // duong thang dung
     {
@@ -25,7 +25,7 @@ function drawLine(x1, y1, x2, y2){ //viet bang thuat toan Bresenham
         {
            
             y += y_unit;
-            drawPixel(x, y);
+          drawPixel(x-2, y-2);
         }
     }
      
@@ -35,7 +35,7 @@ function drawLine(x1, y1, x2, y2){ //viet bang thuat toan Bresenham
         {
             
             x += x_unit;
-            drawPixel(x, y);
+          drawPixel(x-2, y-2);
         }
     }
      
@@ -50,15 +50,15 @@ function drawLine(x1, y1, x2, y2){ //viet bang thuat toan Bresenham
                     y += y_unit;
                 }
                 x += x_unit;
-                drawPixel(x, y);
+              drawPixel(x-2, y-2);
             }  
         }
         else
         {
             if(x2>=x1)
             {
-                var sign=5;
-                (y2>y1)? sign=5:sign=-5;
+                // var sign=5;
+                // (y2>y1)? sign=5:sign=-5;
                 while(!(x == x2+5|| y==y2))
                 {
                 
@@ -73,13 +73,13 @@ function drawLine(x1, y1, x2, y2){ //viet bang thuat toan Bresenham
                         c = c + Dx; 
                         y = y + y_unit; 
                     }
-                    drawPixel(x, y);
+                  drawPixel(x-2, y-2);
                 }
             }
             if(x2<x1)
             {
-                var sign=5;
-                (y2>y1)? sign=+5:sign=-5;
+                // var sign=5;
+                // (y2>y1)? sign=+5:sign=-5;
                 while(!(x == x2-5 || y==y2))
                 {
                 
@@ -94,7 +94,7 @@ function drawLine(x1, y1, x2, y2){ //viet bang thuat toan Bresenham
                         c = c + Dx; 
                         y = y + y_unit; 
                     }
-                    drawPixel(x, y);
+                  drawPixel(x-2, y-2);
                 }
             }
         }
