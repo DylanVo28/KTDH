@@ -4,7 +4,7 @@ import drawLine from './DrawLine.js'
 import DrawDashWithDot from './DrawDashWithDot.js'
 import DrawDash from "./DrawDash.js"
 import drawREC from "./DrawREC.js"
-
+import DrawDashWith2Dots from "./DrawDashWith2Dots.js"
 var canvas = document.getElementById("canvas")
 var ctx = canvas.getContext("2d")
 let w = 1280
@@ -171,7 +171,37 @@ function optionSelect(action) {
                 }
                 createElement(posX, posY, e)   
             }
-            break     
+            break;
+        case 'DRAW_DASH_WITH_TWO_DOTS':   
+            var checkClickFirst = false;
+            var pointPrev = {
+                x: 0,
+                y: 0
+            }
+            canvas.onmousedown = function (e) {
+                const posX = Round(getPosX(e))
+                const posY = Round(getPosY(e))
+                ctx.fillStyle = "red";
+                // ctx.fillRect(posX-2, posY-2,4,4)
+                if (!checkClickFirst) {
+                    pointPrev = {
+                        x: posX,
+                        y: posY
+                    }
+                    checkClickFirst = true;
+                }
+                else {
+                    const point = {
+                        x: posX,
+                        y: posY
+                    }
+                    DrawDashWith2Dots(pointPrev.x, pointPrev.y, point.x, point.y)
+                    pointPrev = point
+                    checkClickFirst = false;
+                }
+                createElement(posX, posY, e)   
+            }
+            break;
         default:
             alert("Chức năng chưa cập nhật")
     }
