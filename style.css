@@ -20,4 +20,6 @@
 }
 .wrap-canvas span{
     position: absolute;
+    font-weight: bold;
+    color: black !important;
 }
