@@ -1,5 +1,4 @@
 import { Round,drawPixel } from "./CaculateHandle.js"; //call function
-
 function drawLine(x1, y1, x2, y2){ //viet bang thuat toan Bresenham
     var c2, c, Dx, Dy, x, y,p;
     Dx = Math.abs(x2 - x1);

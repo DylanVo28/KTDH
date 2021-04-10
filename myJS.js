@@ -5,6 +5,7 @@ import DrawDashWithDot from './DrawDashWithDot.js'
 import DrawDash from "./DrawDash.js"
 import drawREC from "./DrawREC.js"
 import DrawDashWith2Dots from "./DrawDashWith2Dots.js"
+import DrawArrow from "./DrawArrow.js"
 var canvas = document.getElementById("canvas")
 var ctx = canvas.getContext("2d")
 let w = 1280
@@ -17,7 +18,7 @@ for (var i = 0; i < buttons.length; i++) {
     }
 };
 function getRandomString(length) {
-    var randomChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    var randomChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     var result = '';
     for (var i = 0; i < length; i++) {
         result += randomChars.charAt(Math.floor(Math.random() * randomChars.length));
@@ -48,7 +49,7 @@ function optionSelect(action) {
                 createElement(posX, posY, e)
             }
             break;
-        case 'DRAW_LINE':
+        case 'DRAW_ARROW':
             var checkClickFirst = false;
             var pointPrev = {
                 x: 0,
@@ -72,7 +73,8 @@ function optionSelect(action) {
                         x: posX,
                         y: posY
                     }
-                    drawLine(pointPrev.x, pointPrev.y, point.x, point.y)
+                    // drawLine(pointPrev.x, pointPrev.y, point.x, point.y)
+                    DrawArrow(pointPrev.x, pointPrev.y, point.x, point.y)
                     pointPrev = point
                     checkClickFirst = false;
                 }
@@ -103,7 +105,8 @@ function optionSelect(action) {
                         x: posX,
                         y: posY
                     }
-                    DrawDash(pointPrev.x, pointPrev.y, point.x, point.y)
+                    // DrawDash(pointPrev.x, pointPrev.y, point.x, point.y)
+                    
                     pointPrev = point
                     checkClickFirst = false;
                 }

@@ -30,7 +30,7 @@ const initCoordinate=(width,height)=>{
     ctx.moveTo(0, height/2);
     ctx.lineTo(width, height/2);
     ctx.stroke();
-    ctx.fillStyle="red"
+    // ctx.fillStyle="red"
 
 //     for(var x=0;x<=width;x+=10){
 //     ctx.fillRect(x, height/2-4, 1, 8);
