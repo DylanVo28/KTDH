@@ -6,6 +6,7 @@ import DrawDash from "./DrawDash.js"
 import drawREC from "./DrawREC.js"
 import DrawDashWith2Dots from "./DrawDashWith2Dots.js"
 import DrawArrow from "./DrawArrow.js"
+import DrawCirle from './DrawCircle.js';
 var canvas = document.getElementById("canvas")
 var ctx = canvas.getContext("2d")
 let w = 1280
@@ -35,6 +36,7 @@ function createElement(posX, posY, e) {
     node.style.color = "#" + randomColor;
     document.getElementById("wrap").appendChild(node);
 }
+
 function optionSelect(action) {
     switch (action) {
         case 'CLICK_ELEMENT':
@@ -176,6 +178,7 @@ function optionSelect(action) {
             }
             break;
         case 'DRAW_DASH_WITH_TWO_DOTS':   
+
             var checkClickFirst = false;
             var pointPrev = {
                 x: 0,
@@ -202,6 +205,19 @@ function optionSelect(action) {
                     pointPrev = point
                     checkClickFirst = false;
                 }
+                createElement(posX, posY, e)   
+            }
+            break;
+        case 'DRAW_CIRCLE':
+            const radius=document.getElementById("inputRadius").value
+
+            canvas.onmousedown = function (e) {
+                const posX = getPosX(e)
+                const posY = getPosY(e)
+                
+                ctx.fillStyle = "red";
+                DrawCirle(posX,posY,radius)
+               
                 createElement(posX, posY, e)   
             }
             break;
