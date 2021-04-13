@@ -107,7 +107,7 @@ function optionSelect(action) {
                         x: posX,
                         y: posY
                     }
-                    // DrawDash(pointPrev.x, pointPrev.y, point.x, point.y)
+                    DrawDash(pointPrev.x, pointPrev.y, point.x, point.y)
                     
                     pointPrev = point
                     checkClickFirst = false;

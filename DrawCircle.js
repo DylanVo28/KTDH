@@ -3,35 +3,42 @@
 var canvas = document.querySelector('canvas')
 var ctx = canvas.getContext('2d');
 
-var DrawPixel = function (x, y) {
-  ctx.fillRect(x, y, 4, 4);
+
+function DrawPixel( xc, yc, x, y)
+{
+    ctx.fillRect(xc+x, yc+y, 4, 4);
+    ctx.fillRect(xc-x, yc+y, 4, 4);
+    ctx.fillRect(xc+x, yc-y, 4, 4);
+    ctx.fillRect(xc-x, yc-y, 4, 4);
+    ctx.fillRect(xc+y, yc+x, 4, 4);
+    ctx.fillRect(xc-y, yc+x, 4, 4);
+    ctx.fillRect(xc+y, yc-x, 4, 4);
+    ctx.fillRect(xc-y, yc-x, 4, 4);
 }
 
-var DrawCirle = function (x0, y0, radius) {
-  var x = radius;
-  var y = 0;
-  var radiusError = 1 - x;
-  
-  while (x >= y) {
-    console.log(x+" "+y)
-
-    DrawPixel(x + x0, y + y0);
-    DrawPixel(y + x0, x + y0);
-    DrawPixel(-x + x0, y + y0);
-    DrawPixel(-y + x0, x + y0);
-    DrawPixel(-x + x0, -y + y0);
-    DrawPixel(-y + x0, -x + y0);
-    DrawPixel(x + x0, -y + y0);
-    DrawPixel(y + x0, -x + y0);
-    y++;
-    
-    if (radiusError < 0) {
-        radiusError += 2 * y + 1;
+var DrawCirle = function (xc, yc, radius) {
+  var x = 0;
+  var y = radius;
+  var d=3-2*radius;
+  DrawPixel(xc,yc,x,y)
+  while (y >= x)
+    {
+        // for each pixel we will
+        // draw all eight pixels
+         
+        x++;
+ 
+        // check for decision parameter
+        // and correspondingly
+        // update d, x, y
+        if (d > 0)
+        {
+            y--;
+            d = d + 4 * (x - y) + 10;
+        }
+        else
+            d = d + 4 * x + 6;
+            DrawPixel(xc, yc, x, y);
     }
-    else {
-        x--;
-        radiusError+= 2 * (y - x + 1);
-    }
-  }
 };
  export default DrawCirle;
