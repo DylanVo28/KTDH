@@ -209,9 +209,8 @@ function optionSelect(action) {
             }
             break;
         case 'DRAW_CIRCLE':
-            const radius=document.getElementById("inputRadius").value
-            DrawCirle(120,120,radius)
-            DrawCirle(240,120,50)
+            const radius=parseFloat(document.getElementById("inputRadius").value)
+           
             canvas.onmousedown = function (e) {
                 const posX = getPosX(e)
                 const posY = getPosY(e)
