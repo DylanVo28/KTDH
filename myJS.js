@@ -216,7 +216,7 @@ function optionSelect(action) {
                 alert("Bạn chưa nhập bán kính")
             else {
                 alert("Chọn vị trí bạn muốn vẽ")
-                const radius = parseFloat(inputValue)
+                const radius = parseFloat(inputValue)*5
 
                 canvas.onmousedown = function (e) {
                     const posX = Round(getPosX(e))

@@ -3,7 +3,7 @@ var canvas = document.querySelector('canvas')
 var ctx = canvas.getContext('2d');
 function CircleDash( xc, yc, x, y, length)
 {//
-   if(length % 40 <= 16)
+   if(length % 40 <= 15)
     {
         ctx.fillRect(xc+x,yc+y, 4, 4);
         ctx.fillRect(xc-x,yc+y, 4, 4);
@@ -22,7 +22,7 @@ function CircleDash( xc, yc, x, y, length)
             // ctx.fillRect(xc+y, yc-x, 4, 4);
             // ctx.fillRect(xc-y, yc-x, 4, 4);
     }
-  return length+=4;
+  return length+=5;
 }
 
 var DrawCirleWithDash = function (xc, yc, radius) {
@@ -35,13 +35,13 @@ var DrawCirleWithDash = function (xc, yc, radius) {
     {
         // for each pixel we will
         // draw all eight pixels      
-        x+=4;
+        x+=5;
         // check for decision parameter
         // and correspondingly
         // update d, x, y
         if (d > 0)
         {
-            y-=4;
+            y-=5;
             d = d + 4*(x - y)+ 10;
         }
         else       
