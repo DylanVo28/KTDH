@@ -1,18 +1,18 @@
 import { Round } from "./CaculateHandle.js";
 var canvas = document.querySelector('canvas')
 var ctx = canvas.getContext('2d');
-function DrawPixel( xc, yc, x, y, length)
+function CircleDash( xc, yc, x, y, length)
 {//
    if(length % 40 <= 16)
     {
-        ctx.fillRect(Round(xc+x),Round(yc+y), 4, 4);
-        ctx.fillRect(Round(xc-x),Round(yc+y), 4, 4);
-        ctx.fillRect(Round(xc+x),Round(yc-y), 4, 4);
-        ctx.fillRect(Round(xc-x),Round(yc-y), 4, 4);
-        ctx.fillRect(Round(xc+y),Round(yc+x), 4, 4);
-        ctx.fillRect(Round(xc-y),Round(yc+x), 4, 4);
-        ctx.fillRect(Round(xc+y),Round(yc-x), 4, 4);
-        ctx.fillRect(Round(xc-y),Round(yc-x), 4, 4);
+        ctx.fillRect(xc+x,yc+y, 4, 4);
+        ctx.fillRect(xc-x,yc+y, 4, 4);
+        ctx.fillRect(xc+x,yc-y, 4, 4);
+        ctx.fillRect(xc-x,yc-y, 4, 4);
+        ctx.fillRect(xc+y,yc+x, 4, 4);
+        ctx.fillRect(xc-y,yc+x, 4, 4);
+        ctx.fillRect(xc+y,yc-x, 4, 4);
+        ctx.fillRect(xc-y,yc-x, 4, 4);
             // ctx.fillRect(xc+x, yc+y, 4, 4);
             // ctx.fillRect(xc-x, yc+y, 4, 4);
             // ctx.fillRect(xc+x, yc-y, 4, 4);
@@ -30,7 +30,7 @@ var DrawCirleWithDash = function (xc, yc, radius) {
   var length=0;
   var y = radius;
   var d=3-2*radius;
-  length= DrawPixel(xc,yc,x,y, length)
+  length= CircleDash(xc,yc,x,y, length)
   while (y >= x)
     {
         // for each pixel we will
@@ -49,7 +49,7 @@ var DrawCirleWithDash = function (xc, yc, radius) {
             d = d + 4 * x+ 6;
         }
             
-        length= DrawPixel(xc, yc, x, y, length);
+        length= CircleDash(xc, yc, x, y, length);
         
     }
 };

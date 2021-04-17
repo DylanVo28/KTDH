@@ -7,6 +7,7 @@ import drawREC from "./DrawREC.js"
 import DrawDashWith2Dots from "./DrawDashWith2Dots.js"
 import DrawArrow from "./DrawArrow.js"
 import DrawCirle from './DrawCircle.js';
+import DrawCirleWithDash from './CircleWithDash.js'
 var canvas = document.getElementById("canvas")
 var ctx = canvas.getContext("2d")
 let w = 1280
@@ -108,7 +109,7 @@ function optionSelect(action) {
                         y: posY
                     }
                     DrawDash(pointPrev.x, pointPrev.y, point.x, point.y)
-                    
+
                     pointPrev = point
                     checkClickFirst = false;
                 }
@@ -174,10 +175,10 @@ function optionSelect(action) {
                     pointPrev = point
                     checkClickFirst = false;
                 }
-                createElement(posX, posY, e)   
+                createElement(posX, posY, e)
             }
             break;
-        case 'DRAW_DASH_WITH_TWO_DOTS':   
+        case 'DRAW_DASH_WITH_TWO_DOTS':
 
             var checkClickFirst = false;
             var pointPrev = {
@@ -205,20 +206,27 @@ function optionSelect(action) {
                     pointPrev = point
                     checkClickFirst = false;
                 }
-                createElement(posX, posY, e)   
+                createElement(posX, posY, e)
             }
             break;
-        case 'DRAW_CIRCLE':
-            const radius=parseFloat(document.getElementById("inputRadius").value)
-           
-            canvas.onmousedown = function (e) {
-                const posX = getPosX(e)
-                const posY = getPosY(e)
-                
-                ctx.fillStyle = "red";
-                DrawCirle(posX,posY,radius)
-               
-                createElement(posX, posY, e)   
+        case 'DRAW_CIRCLE_DASH':
+            var inputValue = document.getElementById("inputRadius").value
+            console.log(inputValue)
+            if (inputValue === '')
+                alert("Bạn chưa nhập bán kính")
+            else {
+                alert("Chọn vị trí bạn muốn vẽ")
+                const radius = parseFloat(inputValue)
+
+                canvas.onmousedown = function (e) {
+                    const posX = Round(getPosX(e))
+                    const posY = Round(getPosY(e))
+
+                    ctx.fillStyle = "red";
+                    DrawCirleWithDash(posX, posY, radius)
+                    ctx.fillRect(posX, posY, 4, 4)
+                    createElement(posX, posY, e)
+                }
             }
             break;
         default:

@@ -26,14 +26,14 @@ var DrawCirle = function (xc, yc, radius) {
         // for each pixel we will
         // draw all eight pixels
          
-        x++;
+        x+=5;
  
         // check for decision parameter
         // and correspondingly
         // update d, x, y
         if (d > 0)
         {
-            y--;
+            y-=5;
             d = d + 4 * (x - y) + 10;
         }
         else
