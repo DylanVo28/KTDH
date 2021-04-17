@@ -215,6 +215,11 @@ function optionSelect(action) {
             if (inputValue === '')
                 alert("Bạn chưa nhập bán kính")
             else {
+                if (inputValue <10 || inputValue >60)
+                {
+                    alert("Bán kính quá nhỏ hoặc quá to để hiện thị")
+                    break;
+                }
                 alert("Chọn vị trí bạn muốn vẽ")
                 const radius = parseFloat(inputValue)*5
 
