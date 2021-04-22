@@ -8,6 +8,7 @@ import DrawDashWith2Dots from "./DrawDashWith2Dots.js"
 import DrawArrow from "./DrawArrow.js"
 import DrawCirle from './DrawCircle.js';
 import DrawCirleWithDash from './CircleWithDash.js'
+import midptellipse from './EllipseDashed.js'
 var canvas = document.getElementById("canvas")
 var ctx = canvas.getContext("2d")
 let w = 1280
@@ -37,7 +38,7 @@ function createElement(posX, posY, e) {
     node.style.color = "#" + randomColor;
     document.getElementById("wrap").appendChild(node);
 }
-
+midptellipse(100, 50, 100,100); 
 function optionSelect(action) {
     switch (action) {
         case 'CLICK_ELEMENT':
