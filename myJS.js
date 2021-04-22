@@ -38,7 +38,7 @@ function createElement(posX, posY, e) {
     node.style.color = "#" + randomColor;
     document.getElementById("wrap").appendChild(node);
 }
-midptellipse(100, 50, 100,100); 
+midptellipse(250, 150, Round(300),Round(200)); 
 function optionSelect(action) {
     switch (action) {
         case 'CLICK_ELEMENT':
@@ -212,7 +212,6 @@ function optionSelect(action) {
             break;
         case 'DRAW_CIRCLE_DASH':
             var inputValue = document.getElementById("inputRadius").value
-            console.log(inputValue)
             if (inputValue === '')
                 alert("Bạn chưa nhập bán kính")
             else {

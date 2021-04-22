@@ -1,7 +1,9 @@
 
+import { Round } from "./CaculateHandle.js";
 
 var canvas = document.querySelector('canvas')
 var ctx = canvas.getContext('2d');
+
 function midptellipse(rx, ry, xc, yc){
 
     var dx, dy, d1, d2, x, y;
@@ -12,14 +14,24 @@ function midptellipse(rx, ry, xc, yc){
     d1 = (ry * ry) - (rx * rx * ry) + (0.25 * rx * rx);
     dx = 2 * ry * ry * x;
     dy = 2 * rx * rx * y;
+    var count=0;
+    var count2=0
+    
     while (dx < dy){
-            ctx.fillRect(x + xc, y + yc, 4, 4);
-            ctx.fillRect(-x + xc, y + yc, 4, 4);
-            if(x%8==0){
-                ctx.fillRect(x + xc, -y + yc, 4, 4);
-                ctx.fillRect(-x + xc,-y + yc, 4, 4);
+            
+           
+            if(x%5==0){
+                ctx.fillRect(Round(x + xc),Round( y + yc), 4, 4);
+            ctx.fillRect(Round(-x + xc), Round(y + yc), 4, 4);
+                count++
+                if(count%4!=0){
+                    ctx.fillRect(Round(x + xc), Round(-y + yc), 4, 4);
 
+                    ctx.fillRect(Round(-x + xc),Round(-y + yc), 4, 4);
+                }
+               
             }
+            
             
   
 
@@ -55,13 +67,18 @@ function midptellipse(rx, ry, xc, yc){
 
 // Plotting points of region 2
 while (y >= 0) {
-    ctx.fillRect(x + xc,y + yc, 4, 4);
-    ctx.fillRect(-x + xc,y + yc, 4, 4);
-    if(x%8==0){
-        ctx.fillRect(x + xc,-y + yc, 4, 4);
-        ctx.fillRect(-x + xc,-y + yc, 4, 4);
+    
+    if(y%5==0){
+        ctx.fillRect(Round(x + xc),Round(y + yc), 4, 4);
+    ctx.fillRect(Round(-x + xc),Round(y + yc), 4, 4);
+        count2++
+        if(count2%4!=0){
+            ctx.fillRect(Round(x + xc),Round(-y + yc), 4, 4);
+            ctx.fillRect(Round(-x + xc),Round(-y + yc), 4, 4);
+        }
+       
     }
-   
+    
 
 
 // // printing points based on 4-way symmetry
