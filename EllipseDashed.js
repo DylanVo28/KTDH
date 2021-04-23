@@ -1,10 +1,9 @@
 
-import { Round } from "./CaculateHandle.js";
 
 var canvas = document.querySelector('canvas')
 var ctx = canvas.getContext('2d');
 
-function midptellipse(xc, yc,rx,ry) {
+function midptellipse(xc, yc, rx, ry) {
 
     var dx, dy, d1, d2, x, y;
     x = 0;
@@ -21,13 +20,13 @@ function midptellipse(xc, yc,rx,ry) {
 
 
         if (x % 5 == 0) {
-            ctx.fillRect(Round(x + xc), Round(y + yc), 4, 4);
-            ctx.fillRect(Round(-x + xc), Round(y + yc), 4, 4);
+            ctx.fillRect((x + xc), (y + yc), 4, 4);
+            ctx.fillRect((-x + xc), (y + yc), 4, 4);
             count++
             if (count % 4 != 0) {
-                ctx.fillRect(Round(x + xc), Round(-y + yc), 4, 4);
+                ctx.fillRect((x + xc), (-y + yc), 4, 4);
 
-                ctx.fillRect(Round(-x + xc), Round(-y + yc), 4, 4);
+                ctx.fillRect((-x + xc), (-y + yc), 4, 4);
             }
 
         }
@@ -67,12 +66,12 @@ function midptellipse(xc, yc,rx,ry) {
     while (y >= 0) {
 
         if (y % 5 == 0) {
-            ctx.fillRect(Round(x + xc), Round(y + yc), 4, 4);
-            ctx.fillRect(Round(-x + xc), Round(y + yc), 4, 4);
+            ctx.fillRect((x + xc), (y + yc), 4, 4);
+            ctx.fillRect((-x + xc), (y + yc), 4, 4);
             count2++
             if (count2 % 4 != 0) {
-                ctx.fillRect(Round(x + xc), Round(-y + yc), 4, 4);
-                ctx.fillRect(Round(-x + xc), Round(-y + yc), 4, 4);
+                ctx.fillRect((x + xc), (-y + yc), 4, 4);
+                ctx.fillRect((-x + xc), (-y + yc), 4, 4);
             }
 
         }
