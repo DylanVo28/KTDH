@@ -38,7 +38,7 @@ function createElement(posX, posY, e) {
     node.style.color = "#" + randomColor;
     document.getElementById("wrap").appendChild(node);
 }
-midptellipse(250, 150, Round(300),Round(200)); 
+// midptellipse(250, 150, Round(400), Round(200));
 function optionSelect(action) {
     switch (action) {
         case 'CLICK_ELEMENT':
@@ -215,13 +215,12 @@ function optionSelect(action) {
             if (inputValue === '')
                 alert("Bạn chưa nhập bán kính")
             else {
-                if (inputValue <10 || inputValue >60)
-                {
+                if (inputValue < 10 || inputValue > 60) {
                     alert("Bán kính quá nhỏ hoặc quá to để hiện thị")
                     break;
                 }
                 alert("Chọn vị trí bạn muốn vẽ")
-                const radius = parseFloat(inputValue)*5
+                const radius = parseFloat(inputValue) * 5
 
                 canvas.onmousedown = function (e) {
                     const posX = Round(getPosX(e))
@@ -229,6 +228,31 @@ function optionSelect(action) {
 
                     ctx.fillStyle = "red";
                     DrawCirleWithDash(posX, posY, radius)
+                    ctx.fillRect(posX, posY, 4, 4)
+                    createElement(posX, posY, e)
+                }
+            }
+            break;
+        case 'DRAW_ELIP_DASH':
+            var inputValueRa = document.getElementById("inputRa").value
+            var inputValueRb = document.getElementById("inputRb").value
+            if (inputValue === '')
+                alert("Bạn chưa nhập bán kính")
+            else {
+                //     if (inputValue < 10 || inputValue > 60) {
+                //         alert("Bán kính quá nhỏ hoặc quá to để hiện thị")
+                //         break;
+                //     }
+                alert("Chọn vị trí bạn muốn vẽ")
+                const Ra = parseFloat(inputValueRa) * 5
+                const Rb = parseFloat(inputValueRb) * 5
+
+                canvas.onmousedown = function (e) {
+                    const posX = Round(getPosX(e))
+                    const posY = Round(getPosY(e))
+
+                    ctx.fillStyle = "red";
+                    midptellipse(posX, posY, Ra, Rb)
                     ctx.fillRect(posX, posY, 4, 4)
                     createElement(posX, posY, e)
                 }
