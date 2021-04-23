@@ -4,7 +4,7 @@ import { Round } from "./CaculateHandle.js";
 var canvas = document.querySelector('canvas')
 var ctx = canvas.getContext('2d');
 
-function midptellipse(rx, ry, xc, yc) {
+function midptellipse(xc, yc,rx,ry) {
 
     var dx, dy, d1, d2, x, y;
     x = 0;
